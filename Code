@@ -1,0 +1,72 @@
+board=['-','-','-',
+       '-','-','-',
+       '-','-','-']
+
+def displayboard():
+    print(board[0]+'|'+board[1]+'|'+board[2])
+    print('-----')
+    print(board[3]+'|'+board[4]+'|'+board[5])
+    print('-----')
+    print(board[6]+'|'+board[7]+'|'+board[8])
+
+
+
+def game():
+    turn='X'
+    count=0
+    while 1:
+        displayboard()
+        move=int(input('enter the number you want to move to (1-9): '))-1
+        if board[move]=='-':
+            board[move]=turn
+            count+=1
+        else:
+            print('number already occupied, please enter again')
+            continue
+        
+        if count>=5:
+            if board[0]==board[1]==board[2]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[3]==board[4]==board[5]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[6]==board[7]==board[8]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[0]==board[3]==board[6]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[1]==board[4]==board[7]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[2]==board[5]==board[8]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[0]==board[4]==board[8]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+            if board[2]==board[4]==board[6]!='-':
+                displayboard()
+                print(turn+' won')
+                break
+        if count==9:
+            print('Its a tie wanna plan again?')
+            
+        if turn=='X':
+            turn='O'
+        else:
+            turn='X'
+        
+    restart=input('Do you want to play again?[y/n] ')
+    if restart=='y':
+        for i in range(0,9):
+            board[i]="-"
+        game()
