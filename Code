@@ -58,7 +58,7 @@ def game():
                 print(turn+' won')
                 break
         if count==9:
-            print('Its a tie wanna plan again?')
+            print('Its a tie wanna play again?')
             
         if turn=='X':
             turn='O'
